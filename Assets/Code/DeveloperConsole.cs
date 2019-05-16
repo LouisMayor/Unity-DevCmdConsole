@@ -13,18 +13,19 @@ public class ConsoleCommand
 [ExecuteInEditMode]
 public class DeveloperConsole : MonoBehaviour
 {
+    [Header("Console Elements")]
     [SerializeField] private KeyCode m_ActivationKey = KeyCode.BackQuote;
     [SerializeField] private KeyCode m_AcceptInput = KeyCode.KeypadEnter;
 
     [SerializeField] private InputField m_ConsoleText;
     [SerializeField] private Text m_InputText;
 
-    protected DeveloperConsoleUI m_ConsoleUI;
-
     private Dictionary<string, ConsoleCommand> m_Commands;
 
     public static DeveloperConsole Instance { get; private set; }
     public bool IsConsoleVisible { get; private set; }
+
+    protected Action OnUpdatedTextField;
 
     protected virtual void Awake()
     {
@@ -49,6 +50,7 @@ public class DeveloperConsole : MonoBehaviour
         }
 
         Hide();
+        //Show();
     }
 
     protected virtual void Hide()
@@ -110,7 +112,8 @@ public class DeveloperConsole : MonoBehaviour
 
     private void Print(string text)
     {
-        m_ConsoleText.text += text + "\n";
+        m_ConsoleText.text += " - " + text + "\n";
+        OnUpdatedTextField?.Invoke();
     }
 
     private void SubmitCommand(string cmdName)
