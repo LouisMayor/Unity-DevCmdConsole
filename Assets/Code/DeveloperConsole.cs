@@ -132,7 +132,6 @@ public class DeveloperConsole : MonoBehaviour
         }
     }
 
-
     private bool VerifyInput(ref string cmdName)
     {
         return !string.IsNullOrEmpty(cmdName) && !string.IsNullOrWhiteSpace(cmdName);
