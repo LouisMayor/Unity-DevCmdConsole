@@ -9,6 +9,8 @@ public class DeveloperConsoleUI : DeveloperConsole
     [SerializeField] private Image m_TextFieldBackground;
     [SerializeField] private Scrollbar m_Scroll;
 
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -44,7 +46,7 @@ public class DeveloperConsoleUI : DeveloperConsole
         }
 
         // Always at the bottom
-        m_Scroll.value = 1.0f;
+        m_Scroll.value = 0.0f;
     }
 
     protected override void Hide()

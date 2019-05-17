@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\Character.cs" />
     <Compile Include="Assets\Code\DeveloperConsole.cs" />
     <Compile Include="Assets\Code\DeveloperConsoleUI.cs" />
     <Reference Include="Unity.Timeline.Editor">
